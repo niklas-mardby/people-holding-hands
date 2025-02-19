@@ -1,5 +1,5 @@
 .ZombiesBox {
-	margin-top: 1rem;
+	margin: 1rem 0;
 	border: 2px solid rebeccapurple;
 	border-radius: 10px;
 	padding: 1rem;
@@ -9,6 +9,7 @@
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		margin-top: 1rem;
+		margin: 1rem 0;
+		gap: 0.5rem;
 	}
 }
