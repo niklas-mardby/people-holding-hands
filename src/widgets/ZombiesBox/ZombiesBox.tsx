@@ -44,7 +44,7 @@ export default function () {
 			<Button
 				title="Add zombie"
 				handleClick={() => {
-					zombie && setZombies([...zombies, zombie]);
+					zombie.name && zombie.speed && setZombies([...zombies, zombie]);
 					setZombie({ name: "", speed: "" });
 				}}
 			/>
@@ -54,6 +54,18 @@ export default function () {
 					<ZombieCard key={`${index}-${zombie.name}`} {...zombie} />
 				))}
 			</div>
+			<Button
+				title="Seed"
+				handleClick={() =>
+					setZombies([
+						{ name: "Bob", speed: "normal" },
+						{ name: "Lindsy", speed: "crawl" },
+						{ name: "Donny", speed: "slow" },
+						{ name: "Lisa", speed: "mutant fast" },
+						{ name: "Steve", speed: "fast" },
+					])
+				}
+			/>
 		</div>
 	);
 }
