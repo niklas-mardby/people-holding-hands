@@ -1,4 +1,13 @@
 .AnimalItem {
+	background-color: lightskyblue;
+	width: 8rem;
+	border-radius: 5px;
+	margin-bottom: 0.3rem;
+	padding: 0.2rem;
+	padding-left: 0.5rem;
+	display: flex;
+	align-items: center;
+
 	span {
 		display: inline-block;
 		width: 4.5rem;
