@@ -1,0 +1,14 @@
+.ZombiesBox {
+	margin-top: 1rem;
+	border: 2px solid rebeccapurple;
+	border-radius: 10px;
+	padding: 1rem;
+	background-color: lightpink;
+
+	.zombieContainer {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin-top: 1rem;
+	}
+}
