@@ -1,0 +1,16 @@
+.EditableText {
+	background-color: aquamarine;
+	cursor: default;
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	justify-content: space-between;
+
+	&:hover {
+		background-color: mediumaquamarine;
+	}
+
+	button {
+		justify-self: end;
+	}
+}
