@@ -16,7 +16,7 @@ export default function AnimalsList() {
 
 	return (
 		<div className="AnimalsList">
-			<h2>Animals</h2>
+			<h2>🐹 Animals</h2>
 			<ul>
 				{animals.map((animal, index) => (
 					<AnimalItem
