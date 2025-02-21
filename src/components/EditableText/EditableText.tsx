@@ -16,7 +16,6 @@ export default function EditableText({
 	const [isEditing, setIsEditing] = useState(false);
 
 	const handleClick = () => {
-		console.log("Edit/Save clicked: ", editableText);
 		if (isEditing) handleEdit(editableText);
 		setIsEditing(!isEditing);
 	};
