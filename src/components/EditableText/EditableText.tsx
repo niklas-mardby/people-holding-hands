@@ -5,42 +5,40 @@ import Button from "../Button/Button";
 type EditableTextProps = {
 	title: string;
 	content: string;
-	handleEdit: (newContent: string) => void;
+	onSave: (value: string) => void;
 };
 export default function EditableText({
 	title,
 	content,
-	handleEdit,
+	onSave,
 }: Readonly<EditableTextProps>) {
-	const [editableText, setEditableText] = useState(content);
 	const [isEditing, setIsEditing] = useState(false);
+	const [value, setValue] = useState(content);
 
-	const handleClick = () => {
-		if (isEditing) handleEdit(editableText);
-		setIsEditing(!isEditing);
+	const handleSave = () => {
+		onSave(value);
+		setIsEditing(false);
 	};
 
 	return (
 		<p className="EditableText">
+			{title}:{" "}
 			{isEditing ? (
-				<>
-					{title}:{" "}
-					<input
-						type="text"
-						placeholder={title}
-						value={editableText}
-						onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-							setEditableText(e.target.value)
-						}
-					/>{" "}
-					<Button title="Save" handleClick={handleClick} />
-				</>
+				<input
+					type="text"
+					placeholder={title}
+					value={value}
+					onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+						setValue(e.target.value)
+					}
+				/>
 			) : (
-				<>
-					{title}: {editableText}{" "}
-					<Button title="Edit" handleClick={handleClick} />
-				</>
+				<>{value}</>
 			)}
+			<Button
+				title={isEditing ? "Save" : "Edit"}
+				handleClick={() => (isEditing ? handleSave() : setIsEditing(true))}
+			/>
 		</p>
 	);
 }

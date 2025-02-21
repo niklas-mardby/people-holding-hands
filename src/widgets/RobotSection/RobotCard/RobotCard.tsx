@@ -2,62 +2,31 @@ import EditableText from "../../../components/EditableText/EditableText";
 import { Robot } from "../RobotSection";
 import "./RobotCard.scss";
 
-type RobotProps = Robot & {
-	updateState: (robot: Robot) => void;
+type RobotProps = {
+	robot: Robot;
+	updateRobot: (id: string, key: keyof Robot, value: string) => void;
 };
 
 export default function RobotCard({
-	id,
-	name,
-	color,
-	alignment,
-	updateState,
+	robot,
+	updateRobot,
 }: Readonly<RobotProps>) {
 	return (
 		<div className="RobotCard">
 			<EditableText
 				title="Name"
-				content={name}
-				handleEdit={(newName) => {
-					console.log("hit? newName:", newName);
-					const robby: Robot = {
-						id: id,
-						name: newName,
-						color: color,
-						alignment: alignment,
-					};
-					console.log("robby the robot:", robby);
-					updateState({
-						id: id,
-						name: newName,
-						color: color,
-						alignment: alignment,
-					});
-				}}
+				content={robot.name}
+				onSave={(value) => updateRobot(robot.id, "name", value)}
 			/>
 			<EditableText
 				title="Color"
-				content={color}
-				handleEdit={(newColor) => {
-					updateState({
-						id: id,
-						name: name,
-						color: newColor,
-						alignment: alignment,
-					} as Robot);
-				}}
+				content={robot.color}
+				onSave={(value) => updateRobot(robot.id, "color", value)}
 			/>
 			<EditableText
 				title="Alignment"
-				content={alignment}
-				handleEdit={(newAligment) => {
-					updateState({
-						id: id,
-						name: name,
-						color: color,
-						alignment: newAligment,
-					} as Robot);
-				}}
+				content={robot.alignment}
+				onSave={(value) => updateRobot(robot.id, "alignment", value)}
 			/>
 		</div>
 	);
