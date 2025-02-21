@@ -5,15 +5,19 @@ import Button from "../Button/Button";
 type EditableTextProps = {
 	title: string;
 	content: string;
+	handleEdit: (newContent: string) => void;
 };
 export default function EditableText({
 	title,
 	content,
+	handleEdit,
 }: Readonly<EditableTextProps>) {
 	const [editableText, setEditableText] = useState(content);
 	const [isEditing, setIsEditing] = useState(false);
 
 	const handleClick = () => {
+		console.log("Edit/Save clicked: ", editableText);
+		if (isEditing) handleEdit(editableText);
 		setIsEditing(!isEditing);
 	};
 
